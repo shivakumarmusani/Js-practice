@@ -87,18 +87,3 @@ console.log(theater.facilities);//show the theater all facilities information
 console.log(theater.facilities[0]);//only show the facilities[0]=(AC)
 console.log(theater.facilities[1]);//only show the facilities[1]=(Dolby Atmos)
 console.log(theater.showCount);//show the theater showcount
-
-//Part 2: DOM Basics (Afternoon Session)
-//1. DOM Tree Structure
-html
-<!-- Family Tree Analogy -->
-<html> <!-- Grandfather -->
-  <head> <!-- Father -->
-    <title>First Child</title>
-  </head>
-  <body> <!-- Uncle -->
-    <div id="screen"> <!-- Cousin -->
-      <button>Book Now</button> <!-- Grandchild -->
-    </div>
-  </body>
-</html>
