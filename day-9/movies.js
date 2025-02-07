@@ -1,12 +1,3 @@
-//Day 9 Assignment: Basic Movie Ticket
-//System
-// //Assignment 1: Create Movie Objects (Like Filling a Form)
-// Task:
-// 1. Create a movie object with:
-// • Title
-// • Time
-// • Seats available
-
 //movies.js
 const movie1 = {
     title: "kalki",
