@@ -15,25 +15,17 @@
     // Display Movies
     let container = document.getElementById("movies");
 
-    cinema.movies.forEach((movie) => {
+    cinema.movies.forEach((movies) => {
       let card = `
-          <div class="col-md-6">
+          <div class="col-md-4">
               <div class="card mb-3" style="width:20rem;">
-                <img src=${movie.image
-        } class="card-img-top" style="height: 300px" alt="..." >
+                <img src=${movies.image} class="card-img-top" style="height: 300px" alt="..." >
                   <div class="card-body">
-                      <h3>${movie.title}</h3>
+                      <h3>${movies.title}</h3>
                       <div class="shows">
-                          ${movie.shows
-          .map(
-            (time) => `
+                          ${movies.shows.map((time) => `
                               <button class="btn btn-primary m-2">
-                                  ${time} (${movie.seats[movie.shows.indexOf(time)]
-              } seats)
-                              </button>
-                          `
-          )
-          .join("")}
+                                  ${time} (${movies.seats[movies.shows.indexOf(time)]} seats)</button>`).join("")}
                       </div>
                   </div>
               </div>
