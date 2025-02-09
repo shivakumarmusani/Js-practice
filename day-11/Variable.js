@@ -14,7 +14,8 @@ var isPublished = false;
 
 // Try this:
 console.log(postTitle);    // Should show: My First Post
-postTitle = "Updated Post";
+postTitle = "Updated Post"; //postTitle is declared using let, which allows reassignment.
+//So, postTitle is successfully updated to "Updated Post"
 //POST_ID = "POST124";    // This will error! Why? already const is declear the "POST123" 
 
 //Assignment 2: Variable Scope 🎯
@@ -36,9 +37,13 @@ const STORY_DURATION = 24; // hours
 }
 
 // Check what happens:
-console.log(storyLocation);  // Works! Why?
-//console.log(storyFilter);    // Error! Why?
-// console.log(UPLOADED_TIME);  // Error! Why?
+console.log(storyLocation);  // Works! Why?//storyLocation is declared using var, which has function scope 
+// (or global scope if declared outside a function).
+//Since var is not block-scoped, it is still accessible outside the block.
+//console.log(storyFilter);    // Error! Why?  //storyFilter is declared using let, which is block-scoped.
+//It only exists inside the {} block, so trying to access it outside causes a ReferenceError
+// console.log(UPLOADED_TIME);  // Error! Why?  //UPLOADED_TIME is declared using const, which is also block-scoped (like let).
+//Since it's declared inside the {} block, it cannot be accessed outside, causing a ReferenceError.
 
 //Assignment 3: Reference vs Value 📚
 
@@ -60,7 +65,8 @@ let profile2 = profile;  // What happens in memory?
 
 // Try changing values:
 userName = "jane_doe";     // Only userName changes
-profile2.name = "Jane";    // Both profile and profile2 change! Why?
+profile2.name = "Jane";    // Both profile and profile2 change! Why?// profile2 have a profile value and let can be reassignable and 
+//object(profile2.name = "Jane") can be change to "jane"
 
 //Assignment 4: Variable Hoisting ⬆️
 
@@ -74,9 +80,9 @@ console.log(views);      // What happens?
 // console.log(likes);   // What happens?
 // console.log(SHARES);  // What happens?
 
-var views = 100; //undefined
-let likes = 50; //TDZ(temporal dead zone)
-const SHARES = 25;//TDZ(temporal dead zone)
+var views = 100; //undefined(var is hoisted and initialized with undefined)
+let likes = 50; //TDZ(temporal dead zone)let and const are hoisted but stay in the Temporal Dead Zone (TDZ) until execution reaches their declaration
+const SHARES = 25;//TDZ(temporal dead zone) Accessing let or const before declaration results in a ReferenceError
 
 //Assignment 5: Primitive Data Types 📊
 
@@ -137,7 +143,19 @@ console.log(y);  // What prints? Why?//X=10 after y=x assign then y=10
 
 //2. **Spot the Error:**
 const user = { name: "John" };
-user.name = "Jane";      // Works or error?This works. Even though user is declared with const, the properties inside the object can be modified. The object reference itself is constant, but the values inside the object (like name) can be changed
-//user = { name: "Bob" };  // Works or error?This will throw an error. You cannot reassign a new object to user because user was declared as a const. A const variable cannot be reassigned, though its contents (if they are objects or arrays) can be modified.
-console.log(user);
+user.name = "Jane";      // Works or error?This works. Even though user is declared with const, the properties inside the object can be modified.
+// The object reference itself is constant, but the values inside the object (like name) can be changed
+//user = { name: "Bob" };  // Works or error?This will throw an error.
+// You cannot reassign a new object to user because user was declared as a const.
+// A const variable cannot be reassigned, though its contents (if they are objects or arrays) can be modified.
+console.log(user);//At this point, user.name has been modified to "Jane" // output={name: 'Jane'}
+
+//3. **Memory Challenge:**
+let a = { value: 10 };
+let b = a;
+a.value = 20;
+console.log(b.value); //What prints? Why?//It prints 20 because b is not a copy of a, but a reference to the same object in memory.
+// When you change a.value, it also affects b.value since both point to the same object.
+
+
 
